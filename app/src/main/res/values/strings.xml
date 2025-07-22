@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Happy Day</string>
+    <string name="happy_day">Happy Day</string>
+    <string name="birthday_cover_image">Birthday Cover Image</string>
+    <string name="ur_a_star">UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR</string>
+    <string name="get_started">Get Started</string>
+    <string name="search_products">Search products...</string>
+</resources>
