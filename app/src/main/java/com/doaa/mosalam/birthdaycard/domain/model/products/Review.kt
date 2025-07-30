@@ -1,4 +1,4 @@
-package com.doaa.mosalam.birthdaycard.model.products
+package com.doaa.mosalam.birthdaycard.domain.model.products
 
 data class Review(
     val comment: String,

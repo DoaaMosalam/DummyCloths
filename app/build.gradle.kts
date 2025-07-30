@@ -2,6 +2,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    // Hilt plugin
+    alias(libs.plugins.hilt.plugin)
+
+    // KAPT plugin
+    alias(libs.plugins.kaptKotlin)
+
 }
 
 android {
@@ -28,15 +34,16 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaVersion.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaVersion.get())
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = libs.versions.javaVersion.get()
     }
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -66,6 +73,16 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
 //view model
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.hilt.navigation.fragment)
+
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+
+
+
 
 }

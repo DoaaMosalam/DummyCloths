@@ -1,27 +1,26 @@
-package com.doaa.mosalam.birthdaycard.Products.viewmodel
+package com.doaa.mosalam.birthdaycard.ui.Products.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doaa.mosalam.birthdaycard.Repo.ProductRepo
-import com.doaa.mosalam.birthdaycard.Repo.ProductRepoImpl
-import com.doaa.mosalam.birthdaycard.Repo.ProductSearchRepo
-import com.doaa.mosalam.birthdaycard.Repo.SearchProductRepoImpl
-import com.doaa.mosalam.birthdaycard.model.products.ProductsList
+import com.doaa.mosalam.birthdaycard.domain.Repo.SearchProductRepo
+import com.doaa.mosalam.birthdaycard.domain.model.products.ProductsList
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SearchViewModel(
-// private val searchRepo: ProductSearchRepo = SearchProductRepoImpl()
-
+@HiltViewModel
+class SearchViewModel @Inject constructor(
+    private val searchRepo: SearchProductRepo
 ): ViewModel(){
-    private val searchRepo: ProductSearchRepo = SearchProductRepoImpl()
+//    private val searchRepo: ProductSearchRepo = SearchProductRepoImpl()
 
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery
 
-    private val _searchResults = MutableStateFlow<List<ProductsList>>(emptyList())
-    val searchResults: StateFlow<List<ProductsList>> = _searchResults
+    private val _searchResults = MutableStateFlow<List<ProductsList?>?>(emptyList())
+    val searchResults: StateFlow<List<ProductsList?>?> = _searchResults
 
     private val _isLoading = MutableStateFlow<Boolean>(false)
     val isLoading: StateFlow<Boolean> = _isLoading

@@ -1,43 +1,43 @@
-package com.doaa.mosalam.birthdaycard.Products
+package com.doaa.mosalam.birthdaycard.ui.Products
 
-import com.doaa.mosalam.birthdaycard.Products.viewmodel.SearchViewModel
 import android.os.Bundle
-import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.lifecycleScope
-import com.doaa.mosalam.birthdaycard.Products.viewmodel.ProductViewModel
-import com.doaa.mosalam.birthdaycard.adapter.ProductsAdapter
+import com.doaa.mosalam.birthdaycard.ui.Products.viewmodel.ProductViewModel
+import com.doaa.mosalam.birthdaycard.ui.Products.viewmodel.SearchViewModel
+import com.doaa.mosalam.birthdaycard.ui.adapter.ProductsAdapter
 import com.doaa.mosalam.birthdaycard.common.BasicActivity
 import com.doaa.mosalam.birthdaycard.databinding.ActivityProductsBinding
-import com.doaa.mosalam.birthdaycard.model.products.ProductsList
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.plus
+import okhttp3.Dispatcher
 
-
-class Products : BasicActivity<ActivityProductsBinding>(ActivityProductsBinding::inflate){
-//    private val viewModel: ProductViewModel by viewModels()
-private val viewModel: ProductViewModel by lazy { ProductViewModel() }
-    private val searchViewModel: SearchViewModel by lazy { SearchViewModel() }
+@AndroidEntryPoint
+class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProductsBinding::inflate) {
+    private val viewModel: ProductViewModel by viewModels()
+    private val searchViewModel: SearchViewModel by viewModels()
     private lateinit var adapter: ProductsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.IO) {
             viewModel.products.collectLatest { productList ->
-                adapter = ProductsAdapter(productList)
-                binding.recyclerViewProducts.adapter = adapter
+                productList?.let {
+                    adapter = ProductsAdapter(productList)
+                    binding.recyclerViewProducts.adapter = adapter
+                }
 //                adapter.submitList(productList)
             }
         }
 
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.Main) {
             viewModel.error.collectLatest { errorMsg ->
-                errorMsg?.let {
-                    Toast.makeText(this@Products, it, Toast.LENGTH_SHORT).show()
-                }
+                Toast.makeText(this@ProductsActivity, errorMsg, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -66,7 +66,7 @@ private val viewModel: ProductViewModel by lazy { ProductViewModel() }
         lifecycleScope.launch {
             searchViewModel.searchResults.collectLatest { results ->
 
-                if (results.isNotEmpty()) {
+                if (!results.isNullOrEmpty()) {
                     binding.recyclerViewProducts.adapter = ProductsAdapter(results)
                 }
 //                else {
@@ -78,7 +78,7 @@ private val viewModel: ProductViewModel by lazy { ProductViewModel() }
         lifecycleScope.launch {
             searchViewModel.error.collectLatest { errorMsg ->
                 errorMsg?.let {
-                    Toast.makeText(this@Products, it, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -1,6 +1,7 @@
 package com.doaa.mosalam.birthdaycard.data.ApiServer
 
-import com.doaa.mosalam.birthdaycard.model.products.ProductResponse
+import com.doaa.mosalam.birthdaycard.domain.model.products.ProductResponse
+
 import retrofit2.http.GET
 import retrofit2.http.Query
 
