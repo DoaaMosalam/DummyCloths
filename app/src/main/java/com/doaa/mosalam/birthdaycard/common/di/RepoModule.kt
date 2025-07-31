@@ -4,6 +4,7 @@ import com.doaa.mosalam.birthdaycard.domain.Repo.ProductRepo
 import com.doaa.mosalam.birthdaycard.data.repo.ProductRepoImpl
 import com.doaa.mosalam.birthdaycard.data.repo.SearchProductRepoImpl
 import com.doaa.mosalam.birthdaycard.data.ApiServer.APIService
+import com.doaa.mosalam.birthdaycard.domain.Repo.SearchProductRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +17,7 @@ import javax.inject.Singleton
 object RepoModule {
 
     @Provides
-    @ActivityScoped
+    @Singleton
     fun provideProductRepo(
         apiService: APIService
     ): ProductRepo{
@@ -26,7 +27,7 @@ object RepoModule {
     @Singleton
     fun provideSearchProductRepo(
         apiService: APIService
-    ): SearchProductRepoImpl {
+    ): SearchProductRepo {
         return SearchProductRepoImpl(apiService)
     }
 

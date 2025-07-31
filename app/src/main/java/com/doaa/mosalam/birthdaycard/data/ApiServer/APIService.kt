@@ -13,10 +13,4 @@ suspend fun getProducts(): ProductResponse
 //products/search?q=phone'
     @GET("products/search")
     suspend fun searchProducts(@Query("q") query: String): ProductResponse
-
-
-
-
-
-
 }

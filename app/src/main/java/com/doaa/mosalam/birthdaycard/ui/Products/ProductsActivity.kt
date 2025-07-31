@@ -25,7 +25,7 @@ class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProducts
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch {
             viewModel.products.collectLatest { productList ->
                 productList?.let {
                     adapter = ProductsAdapter(productList)
@@ -35,9 +35,12 @@ class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProducts
             }
         }
 
-        lifecycleScope.launch(Dispatchers.Main) {
+        lifecycleScope.launch {
+
             viewModel.error.collectLatest { errorMsg ->
-                Toast.makeText(this@ProductsActivity, errorMsg, Toast.LENGTH_SHORT).show()
+                errorMsg?.let {
+                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
