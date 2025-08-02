@@ -3,7 +3,7 @@ package com.doaa.mosalam.birthdaycard.common
 object Constant {
 
     //'https://dummyjson.com/products'
-    const val BASEURL ="https://dummyjson.com/"
+    const val BASEURL = "https://dummyjson.com/"
 
 //    val api: APIService by lazy {
 //        Retrofit.Builder()

@@ -1,29 +1,32 @@
 package com.doaa.mosalam.birthdaycard.ui.Products
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.doaa.mosalam.birthdaycard.ui.Products.viewmodel.ProductViewModel
+import com.doaa.mosalam.birthdaycard.R
+import com.doaa.mosalam.birthdaycard.common.BaseFragment
+import com.doaa.mosalam.birthdaycard.databinding.FragmentProductsBinding
+import com.doaa.mosalam.birthdaycard.ui.Products.viewmodel.ProductsViewModel
 import com.doaa.mosalam.birthdaycard.ui.Products.viewmodel.SearchViewModel
 import com.doaa.mosalam.birthdaycard.ui.adapter.ProductsAdapter
-import com.doaa.mosalam.birthdaycard.common.BasicActivity
-import com.doaa.mosalam.birthdaycard.databinding.ActivityProductsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
 
 @AndroidEntryPoint
-class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProductsBinding::inflate) {
-    private val viewModel: ProductViewModel by viewModels()
+class ProductsFragment : BaseFragment<FragmentProductsBinding, ProductsViewModel>() {
+    override fun getLayoutResID(): Int = R.layout.fragment_products
+
+    override val viewModel: ProductsViewModel by viewModels()
+
     private val searchViewModel: SearchViewModel by viewModels()
     private lateinit var adapter: ProductsAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
             viewModel.products.collectLatest { productList ->
@@ -39,7 +42,8 @@ class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProducts
 
             viewModel.error.collectLatest { errorMsg ->
                 errorMsg?.let {
-                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -81,9 +85,13 @@ class ProductsActivity : BasicActivity<ActivityProductsBinding>(ActivityProducts
         lifecycleScope.launch {
             searchViewModel.error.collectLatest { errorMsg ->
                 errorMsg?.let {
-                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@ProductsActivity, it, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                 }
             }
         }
     }
 }
+
+
+

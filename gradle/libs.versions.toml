@@ -29,6 +29,7 @@ hiltPlugin = "2.57"
 devtoolsKsp = "1.9.24-1.0.20"
 lifecycle = "2.9.2"
 lifecycleRuntimeKtxVersion = "2.4.0"
+databindingRuntime = "8.12.0"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -54,6 +55,7 @@ lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-view
 androidx-lifecycle-runtime-ktx-v240 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
 
 hilt-navigation-fragment = { group = "androidx.hilt", name = "hilt-navigation-fragment", version = "1.2.0" }
+androidx-databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntime" }
 
 
 [plugins]
@@ -64,5 +66,5 @@ hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin
 
 kaptKotlin = {id="org.jetbrains.kotlin.kapt"}
 
-nav-Component = {id ="androidx.navigation.safeargs.kotlin"}
+nav-Component = {id ="androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx"}
 

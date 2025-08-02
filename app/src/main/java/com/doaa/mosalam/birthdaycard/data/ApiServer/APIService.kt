@@ -7,10 +7,10 @@ import retrofit2.http.Query
 
 interface APIService {
     // get products from the API
-@GET("products")
-suspend fun getProducts(): ProductResponse
+    @GET("products")
+    suspend fun getProducts(): ProductResponse
 
-//products/search?q=phone'
+    //products/search?q=phone'
     @GET("products/search")
     suspend fun searchProducts(@Query("q") query: String): ProductResponse
 }
