@@ -8,6 +8,8 @@ plugins {
     // KAPT plugin
     alias(libs.plugins.kaptKotlin)
 
+    //navigation
+//    alias(libs.plugins.nav.component)
 }
 
 android {
@@ -80,6 +82,10 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    //navigation component
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
 
 
