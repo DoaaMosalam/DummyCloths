@@ -14,6 +14,8 @@ lifecycleViewmodelKtx = "2.9.2"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+navigationFragmentKtx = "2.9.3"
+navigationUiKtx = "2.9.3"
 picasso = "2.8"
 recyclerview = "1.4.0"
 retrofit = "3.0.0"
@@ -31,6 +33,8 @@ lifecycleRuntimeKtxVersion = "2.4.0"
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
+androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -59,4 +63,6 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }
 
 kaptKotlin = {id="org.jetbrains.kotlin.kapt"}
+
+nav-Component = {id ="androidx.navigation.safeargs.kotlin"}
 
