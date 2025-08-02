@@ -12,15 +12,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductViewModel @Inject constructor(
+class ProductsViewModel @Inject constructor(
     private val repository: ProductRepo
-): ViewModel() {
+) : ViewModel() {
     private val _products = MutableStateFlow<List<ProductsList?>?>(null)
     val products: StateFlow<List<ProductsList?>?> = _products
     private val _isLoading = MutableStateFlow<Boolean>(false)
 
     private val _error = MutableStateFlow<String?>(null)
-    val error : StateFlow<String?> = _error
+    val error: StateFlow<String?> = _error
 
     init {
 
@@ -28,13 +28,13 @@ class ProductViewModel @Inject constructor(
     }
 
     private fun fetchProducts() {
-            viewModelScope.launch(Dispatchers.IO) {
-                try {
-                    val response = repository.getAllProducts()
-                    _products.emit(response.products)
-                } catch (e: Exception) {
-                    _error.value = "Error: ${e.message}"
-                }
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = repository.getAllProducts()
+                _products.emit(response.products)
+            } catch (e: Exception) {
+                _error.value = "Error: ${e.message}"
             }
+        }
     }
 }

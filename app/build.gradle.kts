@@ -1,4 +1,3 @@
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -9,7 +8,7 @@ plugins {
     alias(libs.plugins.kaptKotlin)
 
     //navigation
-//    alias(libs.plugins.nav.component)
+    alias(libs.plugins.nav.component)
 }
 
 android {
@@ -44,6 +43,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
 }
@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.databinding.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,7 +72,7 @@ dependencies {
     implementation(libs.converter.gson)
 
     //coroutines
-        implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
 //view model
@@ -86,9 +87,6 @@ dependencies {
     //navigation component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-
-
-
 
 
 }

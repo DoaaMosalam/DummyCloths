@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val searchRepo: SearchProductRepo
-): ViewModel(){
+) : ViewModel() {
 //    private val searchRepo: ProductSearchRepo = SearchProductRepoImpl()
 
     private val _searchQuery = MutableStateFlow("")
@@ -28,23 +28,23 @@ class SearchViewModel @Inject constructor(
     private val _error = MutableStateFlow<String?>(null)
     val error: StateFlow<String?> = _error
 
-    fun setSearchQuery(query:String){
+    fun setSearchQuery(query: String) {
         _searchQuery.value = query
     }
 
-    fun searchProducts(){
-      viewModelScope.launch {
-          _isLoading.value = true
-          _error.value = null
-          try {
-              val response = searchRepo.searchProducts(_searchQuery.value)
-              _searchResults.value = response.products ?: emptyList()
-          } catch (e: Exception) {
-              _error.value = e.localizedMessage ?: "An error occurred"
-          } finally {
-              _isLoading.value = false
-          }
-      }
+    fun searchProducts() {
+        viewModelScope.launch {
+            _isLoading.value = true
+            _error.value = null
+            try {
+                val response = searchRepo.searchProducts(_searchQuery.value)
+                _searchResults.value = response.products ?: emptyList()
+            } catch (e: Exception) {
+                _error.value = e.localizedMessage ?: "An error occurred"
+            } finally {
+                _isLoading.value = false
+            }
+        }
     }
 
     fun clearSearchQuery() {

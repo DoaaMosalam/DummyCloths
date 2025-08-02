@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
-abstract class BasicActivity<MviewBinding:ViewBinding>(private val bindingInflater:(inflater :LayoutInflater) -> MviewBinding )
-    :AppCompatActivity() {
+abstract class BasicActivity<MviewBinding : ViewBinding>(private val bindingInflater: (inflater: LayoutInflater) -> MviewBinding) :
+    AppCompatActivity() {
 
-        private var _binding:MviewBinding? = null
+    private var _binding: MviewBinding? = null
 //    val binding:MviewBinding get() = _binding as MviewBinding
 
     val binding: MviewBinding
@@ -21,6 +21,7 @@ abstract class BasicActivity<MviewBinding:ViewBinding>(private val bindingInflat
         _binding = bindingInflater.invoke(layoutInflater)
         setContentView(binding.root)
     }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null // Clear the binding reference to avoid memory leaks
