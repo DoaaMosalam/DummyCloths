@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.doaa.mosalam.birthdaycard.databinding.ProductsItemBinding
-import com.doaa.mosalam.birthdaycard.domain.model.products.ProductsList
+import com.doaa.mosalam.domain.model.products.ProductsList
 import com.squareup.picasso.Picasso
 
 class ProductsAdapter(private val products: List<ProductsList?>?) :

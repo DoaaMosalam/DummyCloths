@@ -31,6 +31,7 @@ lifecycle = "2.9.2"
 lifecycleRuntimeKtxVersion = "2.4.0"
 databindingRuntime = "8.12.0"
 kspkotlindeve="2.0.21-1.0.27"
+engageCore = "1.5.8"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -60,6 +61,7 @@ androidx-lifecycle-runtime-ktx-v240 = { module = "androidx.lifecycle:lifecycle-r
 
 hilt-navigation-fragment = { group = "androidx.hilt", name = "hilt-navigation-fragment", version = "1.2.0" }
 androidx-databinding-runtime = { group = "androidx.databinding", name = "databinding-runtime", version.ref = "databindingRuntime" }
+engage-core = { group = "com.google.android.engage", name = "engage-core", version.ref = "engageCore" }
 
 
 [plugins]

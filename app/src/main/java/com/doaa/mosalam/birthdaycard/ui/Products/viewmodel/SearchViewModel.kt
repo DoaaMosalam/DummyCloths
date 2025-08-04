@@ -2,8 +2,9 @@ package com.doaa.mosalam.birthdaycard.ui.Products.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doaa.mosalam.birthdaycard.domain.Repo.SearchProductRepo
-import com.doaa.mosalam.birthdaycard.domain.model.products.ProductsList
+import com.doaa.mosalam.domain.Repo.SearchProductRepo
+import com.doaa.mosalam.domain.model.products.ProductsList
+import com.doaa.mosalam.domain.usecase.SearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val searchRepo: SearchProductRepo
+    private val searchRepo : SearchUseCase
 ) : ViewModel() {
 //    private val searchRepo: ProductSearchRepo = SearchProductRepoImpl()
 
