@@ -21,15 +21,16 @@ recyclerview = "1.4.0"
 retrofit = "3.0.0"
 converterGson = "3.0.0"
 minSdk = "27"
+roomCompiler = "2.7.2"
 targetSdk = "36"
 compileSdk = "36"
 javaVersion = "17"
 hilt = "2.57"
 hiltPlugin = "2.57"
-devtoolsKsp = "1.9.24-1.0.20"
 lifecycle = "2.9.2"
 lifecycleRuntimeKtxVersion = "2.4.0"
 databindingRuntime = "8.12.0"
+kspkotlindeve="2.0.21-1.0.27"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -37,6 +38,9 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationUiKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCompiler" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomCompiler" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -67,4 +71,6 @@ hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin
 kaptKotlin = {id="org.jetbrains.kotlin.kapt"}
 
 nav-Component = {id ="androidx.navigation.safeargs.kotlin", version.ref = "navigationFragmentKtx"}
+kspkotlin_plugin =  {id="com.google.devtools.ksp",version.ref = "kspkotlindeve"}
+kspkotlin = {id = "com.google.devtools.ksp"}
 
