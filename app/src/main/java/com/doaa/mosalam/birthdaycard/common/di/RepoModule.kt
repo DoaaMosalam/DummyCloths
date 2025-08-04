@@ -1,10 +1,11 @@
 package com.doaa.mosalam.birthdaycard.common.di
 
-import com.doaa.mosalam.birthdaycard.data.ApiServer.APIService
-import com.doaa.mosalam.birthdaycard.data.repo.ProductRepoImpl
-import com.doaa.mosalam.birthdaycard.data.repo.SearchProductRepoImpl
-import com.doaa.mosalam.birthdaycard.domain.Repo.ProductRepo
-import com.doaa.mosalam.birthdaycard.domain.Repo.SearchProductRepo
+import com.doaa.mosalam.data.ApiServer.APIService
+import com.doaa.mosalam.data.local.ProductsDao
+import com.doaa.mosalam.data.repo.ProductRepoImpl
+import com.doaa.mosalam.data.repo.SearchProductRepoImpl
+import com.doaa.mosalam.domain.Repo.ProductRepo
+import com.doaa.mosalam.domain.Repo.SearchProductRepo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +19,10 @@ object RepoModule {
     @Provides
     @Singleton
     fun provideProductRepo(
-        apiService: APIService
+        apiService: APIService,
+        productDao : ProductsDao
     ): ProductRepo {
-        return ProductRepoImpl(apiService)
+        return ProductRepoImpl(apiService,productDao)
     }
 
     @Provides

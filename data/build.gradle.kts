@@ -1,30 +1,22 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    // Hilt plugin
-    alias(libs.plugins.hilt.plugin)
 
     // KAPT plugin
     alias(libs.plugins.kaptKotlin)
     // KSP plugin
     alias(libs.plugins.kspkotlin)
-
-    //navigation
-    alias(libs.plugins.nav.component)
 }
 
 android {
-    namespace = "com.doaa.mosalam.birthdaycard"
-    compileSdk = libs.versions.compileSdk.get().toInt()
+    namespace = "com.doaa.mosalam.data"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.doaa.mosalam.birthdaycard"
-        minSdk = libs.versions.minSdk.get().toInt()
-        targetSdk = libs.versions.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -37,40 +29,24 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaVersion.get())
-        targetCompatibility = JavaVersion.toVersion(libs.versions.javaVersion.get())
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = libs.versions.javaVersion.get()
+        jvmTarget = "11"
     }
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
-
 }
 
 dependencies {
-    implementation(project(":data"))
     implementation(project(":domain"))
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.databinding.runtime)
+    implementation(libs.engage.core)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    // recycler View
-    implementation(libs.androidx.recyclerview)
-    //cart view
-    implementation(libs.androidx.cardview)
-
-    //picasso
-    implementation(libs.picasso)
 
     //retrofit
     implementation(libs.retrofit)
@@ -84,11 +60,6 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.navigation.fragment)
 
-
-    // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
     //navigation component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
@@ -99,6 +70,4 @@ dependencies {
 //    ksp(libs.androidx.room.compiler)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-
-
 }

@@ -4,7 +4,7 @@ object Constant {
 
     //'https://dummyjson.com/products'
     const val BASEURL = "https://dummyjson.com/"
-
+    const val DATABASE_NAME = "User"
 //    val api: APIService by lazy {
 //        Retrofit.Builder()
 //            .baseUrl(BASEURL)
