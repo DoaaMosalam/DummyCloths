@@ -6,6 +6,8 @@ plugins {
 
     // KAPT plugin
     alias(libs.plugins.kaptKotlin)
+    // KSP plugin
+    alias(libs.plugins.kspkotlin)
 
     //navigation
     alias(libs.plugins.nav.component)
@@ -87,6 +89,13 @@ dependencies {
     //navigation component
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    //room database
+    implementation(libs.androidx.room.runtime)
+
+//    ksp(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
 
 
 }
