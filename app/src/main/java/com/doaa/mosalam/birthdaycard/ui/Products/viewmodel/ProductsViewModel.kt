@@ -2,7 +2,6 @@ package com.doaa.mosalam.birthdaycard.ui.Products.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.doaa.mosalam.domain.Repo.ProductRepo
 import com.doaa.mosalam.domain.model.products.ProductsList
 import com.doaa.mosalam.domain.usecase.ProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ProductsViewModel @Inject constructor(
-    private val repository : ProductsUseCase
+    private val repository: ProductsUseCase
 ) : ViewModel() {
     private val _products = MutableStateFlow<List<ProductsList?>?>(null)
     val products: StateFlow<List<ProductsList?>?> = _products
@@ -36,7 +35,7 @@ class ProductsViewModel @Inject constructor(
                 _products.emit(response.products)
             } catch (e: Exception) {
                 _error.emit("Error: ${e.message}")
-            }finally {
+            } finally {
                 _isLoading.emit(false)
             }
         }

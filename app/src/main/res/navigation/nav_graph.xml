@@ -10,11 +10,31 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_productsFragment"
-            app:destination="@id/productsFragment" />
+            android:id="@+id/action_homeFragment_to_productsFragment2"
+            app:destination="@id/productsFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/productsFragment"
+        android:id="@+id/cartFragment"
+        android:name="com.doaa.mosalam.birthdaycard.ui.Cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/favorityFragment"
+        android:name="com.doaa.mosalam.birthdaycard.ui.Favorite.FavorityFragment"
+        android:label="fragment_favority"
+        tools:layout="@layout/fragment_favority" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.doaa.mosalam.birthdaycard.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.doaa.mosalam.birthdaycard.ui.Login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/productsFragment2"
         android:name="com.doaa.mosalam.birthdaycard.ui.Products.ProductsFragment"
         android:label="ProductsFragment" />
 </navigation>

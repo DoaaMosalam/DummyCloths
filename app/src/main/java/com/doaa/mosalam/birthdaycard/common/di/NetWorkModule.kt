@@ -1,7 +1,7 @@
 package com.doaa.mosalam.birthdaycard.common.di
 
-import com.doaa.mosalam.data.ApiServer.APIService
 import com.doaa.mosalam.birthdaycard.common.Constant
+import com.doaa.mosalam.data.ApiServer.APIService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

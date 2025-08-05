@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object UseCaseModel {
 
- @Provides
+    @Provides
     @Singleton
     fun provideProductsUseCase(
         productRepo: ProductRepo
@@ -29,6 +29,4 @@ object UseCaseModel {
     ): SearchUseCase {
         return SearchUseCase(searchProductRepo)
     }
-
-
 }
