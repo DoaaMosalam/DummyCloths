@@ -34,7 +34,7 @@ object NetworkRoomDataModule {
 
     @Provides
     @Singleton
-    fun provideProductsDao(db: AppDatabase): ProductsDao =  db.productsDao()
+    fun provideProductsDao(db: AppDatabase): ProductsDao = db.productsDao()
 
 
 }

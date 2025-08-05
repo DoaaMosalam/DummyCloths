@@ -20,9 +20,9 @@ object RepoModule {
     @Singleton
     fun provideProductRepo(
         apiService: APIService,
-        productDao : ProductsDao
+        productDao: ProductsDao
     ): ProductRepo {
-        return ProductRepoImpl(apiService,productDao)
+        return ProductRepoImpl(apiService, productDao)
     }
 
     @Provides

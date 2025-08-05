@@ -18,6 +18,7 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -25,8 +26,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             binding.startedBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_productsFragment)
+                findNavController().navigate(R.id.action_homeFragment_to_productsFragment2)
+//                findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
             }
+
 
         }
     }
@@ -35,5 +38,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
 }
