@@ -48,20 +48,6 @@ class ProductsFragment : BaseFragment<FragmentProductsBinding, ProductsViewModel
             }
         }
 
-        // Search input
-//        binding.searchInput.setOnEditorActionListener { v, actionId, event ->
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                val query = binding.searchInput.text.toString().trim()
-//                if (query.isNotEmpty()) {
-//                    searchViewModel.setSearchQuery(query)
-//                    searchViewModel.searchProducts()
-//                }
-//                true
-//            } else {
-//                false
-//            }
-//        }
-
         binding.searchInput.doAfterTextChanged {
             val query = it.toString().trim()
             if (query.isNotEmpty()) {

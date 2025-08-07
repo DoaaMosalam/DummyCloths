@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">Happy Day</string>
-    <string name="happy_day">Happy Day</string>
-    <string name="birthday_cover_image">Birthday Cover Image</string>
-    <string name="ur_a_star">UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="app_name" translatable="false">Happy Day</string>
+    <string name="happy_day" translatable="false">Happy Day</string>
+    <string name="birthday_cover_image" translatable="false">Birthday Cover Image</string>
+    <string name="ur_a_star" translatable="false">UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR UR A STAR</string>
     <string name="get_started">Get Started</string>
     <string name="search_products">Search products...</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="favorite">Favorite</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
@@ -18,4 +20,7 @@
     <string name="register">Register</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="or">or</string>
+    <string name="theme_mode">Theme Mode</string>
+    <string name="language">Language</string>
+    <string name="logout">LogOut</string>
 </resources>
