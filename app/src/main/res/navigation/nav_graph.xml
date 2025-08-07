@@ -10,9 +10,14 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_productsFragment2"
-            app:destination="@id/productsFragment2" />
+            android:id="@+id/action_homeFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.doaa.mosalam.birthdaycard.ui.Products.ProductsFragment"
+        android:label="ProductsFragment" />
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.doaa.mosalam.birthdaycard.ui.Cart.CartFragment"
@@ -33,8 +38,5 @@
         android:name="com.doaa.mosalam.birthdaycard.ui.Login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
-    <fragment
-        android:id="@+id/productsFragment2"
-        android:name="com.doaa.mosalam.birthdaycard.ui.Products.ProductsFragment"
-        android:label="ProductsFragment" />
+
 </navigation>

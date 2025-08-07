@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             binding.startedBtn.setOnClickListener {
-                findNavController().navigate(R.id.action_homeFragment_to_productsFragment2)
+                findNavController().navigate(R.id.action_homeFragment_to_productsFragment)
 //                findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
             }
 
