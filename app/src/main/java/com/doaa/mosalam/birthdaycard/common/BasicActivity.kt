@@ -1,9 +1,11 @@
 package com.doaa.mosalam.birthdaycard.common
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.doaa.mosalam.birthdaycard.util.LocaleManager
 
 abstract class BasicActivity<MviewBinding : ViewBinding>(private val bindingInflater: (inflater: LayoutInflater) -> MviewBinding) :
     AppCompatActivity() {
@@ -15,6 +17,12 @@ abstract class BasicActivity<MviewBinding : ViewBinding>(private val bindingInfl
         get() = checkNotNull(_binding) {
             "Binding is not initialized. Make sure to call setContentView() before accessing the binding."
         }
+
+    override fun attachBaseContext(newBase: Context) {
+        val localeUpdatedContext = LocaleManager.setLocale(newBase, LocaleManager.getLanguage(newBase))
+        super.attachBaseContext(localeUpdatedContext)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
